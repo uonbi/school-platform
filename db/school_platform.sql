@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2015 at 03:24 PM
+-- Generation Time: Feb 17, 2015 at 04:45 PM
 -- Server version: 5.5.41-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('8232b57d35b972aa69c94455d250fc1d', '127.0.0.1', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0', 1424089345, '');
+('14dd7940ff9e05c089ab1b91ad0fa899', '127.0.0.1', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:35.0) Gecko/20100101 Firefox/35.0', 1424178919, '');
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,14 @@ CREATE TABLE IF NOT EXISTS `school` (
   `scid` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`scid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `school`
+--
+
+INSERT INTO `school` (`scid`, `name`) VALUES
+(1, 'School of Computing & Informatics');
 
 -- --------------------------------------------------------
 
@@ -180,7 +187,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`uid`),
   KEY `ulid` (`ulid`),
   KEY `scid` (`scid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`uid`, `ulid`, `scid`, `username`, `email`, `designation`, `photo`, `password`, `date_time`) VALUES
+(1, 1, 1, 'Anthony Nandaa', 'nandaa@uonbi.ac.ke', 'Graduate Assistant', NULL, '827ccb0eea8a706c4c34a16891f84e7b', '2015-02-17 13:44:44');
 
 -- --------------------------------------------------------
 
@@ -193,7 +207,16 @@ CREATE TABLE IF NOT EXISTS `user_level` (
   `level` int(11) DEFAULT NULL,
   `level_name` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`ulid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `user_level`
+--
+
+INSERT INTO `user_level` (`ulid`, `level`, `level_name`) VALUES
+(1, 1, 'Super User'),
+(2, 2, 'Administrator'),
+(3, 3, 'Normal');
 
 --
 -- Constraints for dumped tables
