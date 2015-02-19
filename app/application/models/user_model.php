@@ -6,7 +6,7 @@ class User_model extends CI_Model{
 			$this->db->where("uid",$arg);
 		}else{
 			#it's email
-			$this->db->where("email",$email);
+			$this->db->where("email",$arg);
 		}
 
 		$result = $this->db->get("user");

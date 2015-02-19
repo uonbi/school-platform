@@ -27,13 +27,22 @@ class Home extends CI_Controller {
 			$email = $this->input->post("email");
 			$password = $this->input->post("password");
 			if($this->user_model->validate_user($email,$password)){
+				$user_details = $this->user_model->get_user($email);
+				// var_dump($user_details); die();
+				$this->session->set_userdata($user_details);
+				$this->session->set_userdata("is_logged_in",TRUE);
 
+				redirect("user");
+			}else{
+				$this->session->set_flashdata("msg","Wrong Email/Password");
+				redirect("home/login");
 			}
 		}
 	}
 
 	public function logout(){
 		$this->session->sess_destory();
+		// session_destroy();
 		redirect("home/login");
 	}
 }
