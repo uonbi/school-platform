@@ -5,6 +5,10 @@
 
 <?php 
 
+if($this->session->flashdata("msg") != ""){
+	echo '<div class="alert alert-danger" role="alert">'.$this->session->flashdata("msg").'</div>';
+}
+
 echo form_open("home/login/submit","class='form'");
 echo form_input("email","");
 echo form_label("Email");
